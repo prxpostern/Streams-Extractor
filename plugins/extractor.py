@@ -29,7 +29,7 @@ async def confirm_dwnld(client, message):
                 [InlineKeyboardButton(text="CANCEL", callback_data="close")]
             ])
         )
-    if filetype.mime_type.startswith("audio/"):
+    else:
         await message.reply_text(
             "**What you want me to do??**",
             quote=True,
@@ -38,8 +38,8 @@ async def confirm_dwnld(client, message):
                 [InlineKeyboardButton(text="CANCEL", callback_data="close")]
             ])
         )
-    else:
-        await message.reply_text(
-            "Invalid Media",
-            quote=True
-        )
+    #else:
+    #    await message.reply_text(
+    #        "Invalid Media",
+    #        quote=True
+    #    )    
