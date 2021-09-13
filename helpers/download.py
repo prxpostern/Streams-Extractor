@@ -26,7 +26,7 @@ async def download_file(client, message):
         ]),
         reply_to_message_id=media.message_id
     )
-    filetype = media.document or media.video
+    filetype = media.document or media.video or media.audio
 
     c_time = time.time()
 
