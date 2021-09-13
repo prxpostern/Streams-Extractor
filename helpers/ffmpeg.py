@@ -13,7 +13,7 @@ async def extract_audio(client, message, data):
     out_loc = data['location'] + ".mka"
 
     if data['name'] == "amr_nb":
-        out, err, rcode, pid = await execute(f"ffmpeg -i '{dwld_loc}' -map 0:{data['map']} -ss 00:10:00 -to 02:10:00 -c:a libmp3lame -ar 32000 '{out_loc}' -y")
+        out, err, rcode, pid = await execute(f"ffmpeg -i '{dwld_loc}' -ss 00:10:00 -to 02:10:00 -c:a libmp3lame -ar 32000 '{out_loc}' -y")
         if rcode != 0:
             await message.edit_text("**Error Occured. See Logs for more info.**")
             print(err)
