@@ -21,9 +21,6 @@ async def upload_audio(client, message, file_loc):
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton(text="Progress", callback_data="progress_msg")]])
     )
-    
-    media = message.audio
-    filename = media.file_name
 
     title = None
     artist = None
@@ -45,8 +42,8 @@ async def upload_audio(client, message, file_loc):
             chat_id=message.chat.id,
             audio=file_loc,
             thumb=thumb,
-            caption=file_loc,
-            title=tgtitle,
+            caption="**@posternaudext001bot**",
+            title=title,
             performer=artist,
             duration=duration,
             progress=progress_func,
