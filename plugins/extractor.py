@@ -21,6 +21,8 @@ async def confirm_dwnld(client, message):
 
     media = message
     filetype = media.document or media.video
+    filename = filetype.file_name
+    mes1 = await client.reply_text("<code>{filename}</code>")
     
     title = await client.ask(message.chat.id,'Enter Title :', filters=filters.text)
     tgtitle = title.text
