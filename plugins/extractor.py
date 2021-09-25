@@ -10,6 +10,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from config import Config
 from script import Script
 
+global tgtitle = "None"
 
 @trojanz.on_message(filters.private & (filters.document | filters.video))
 async def confirm_dwnld(client, message):
@@ -18,7 +19,9 @@ async def confirm_dwnld(client, message):
         return
 
     media = message
-    filetype = media.document or media.video or media.audio
+    filetype = media.document or media.video
+    
+    tgtitle = await client.ask(message.chat.id,'Enter Title :', filters=filters.text)
 
     if filetype.mime_type.startswith("video/"):
         await message.reply_text(
@@ -42,4 +45,4 @@ async def confirm_dwnld(client, message):
     #    await message.reply_text(
     #        "Invalid Media",
     #        quote=True
-    #    )    
+    #    )
