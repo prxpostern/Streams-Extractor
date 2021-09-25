@@ -6,12 +6,10 @@
 from pyrogram import filters
 from pyrogram import Client as trojanz
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from pyromod import listen
 
 from config import Config
 from script import Script
 
-global tgtitle
 
 @trojanz.on_message(filters.private & (filters.document | filters.video))
 async def confirm_dwnld(client, message):
@@ -20,12 +18,7 @@ async def confirm_dwnld(client, message):
         return
 
     media = message
-    filetype = media.document or media.video
-    filename = filetype.file_name
-    mes1 = await client.reply_text("<code>{filename}</code>")
-    
-    title = await client.ask(message.chat.id,'Enter Title :', filters=filters.text)
-    tgtitle = title.text
+    filetype = media.document or media.video or media.audio
 
     if filetype.mime_type.startswith("video/"):
         await message.reply_text(
