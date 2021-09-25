@@ -45,7 +45,7 @@ async def upload_audio(client, message, file_loc):
             chat_id=message.chat.id,
             audio=file_loc,
             thumb=thumb,
-            caption=filename,
+            caption=file_loc,
             title=tgtitle.text,
             performer=artist,
             duration=duration,
