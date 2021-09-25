@@ -46,7 +46,7 @@ async def upload_audio(client, message, file_loc):
             audio=file_loc,
             thumb=thumb,
             caption=file_loc,
-            title=tgtitle.text,
+            title=tgtitle,
             performer=artist,
             duration=duration,
             progress=progress_func,
