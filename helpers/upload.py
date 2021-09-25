@@ -25,7 +25,7 @@ async def upload_audio(client, message, file_loc):
     media = message.audio
     filename = media.file_name
 
-    title = await client.ask(message.chat.id,'Enter Title :', filters=filters.text)
+    title = None
     artist = None
     thumb = None
     duration = 0
@@ -46,7 +46,7 @@ async def upload_audio(client, message, file_loc):
             audio=file_loc,
             thumb=thumb,
             caption=filename,
-            title=title.text,
+            title=tgtitle.text,
             performer=artist,
             duration=duration,
             progress=progress_func,
