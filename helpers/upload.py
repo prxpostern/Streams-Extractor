@@ -22,7 +22,7 @@ async def upload_audio(client, message, file_loc):
             [[InlineKeyboardButton(text="Progress", callback_data="progress_msg")]])
     )
     
-    media = message.video or message.document
+    media = message.audio
     filename = media.file_name
 
     title = await client.ask(message.chat.id,'Enter Title :', filters=filters.text)
@@ -46,7 +46,7 @@ async def upload_audio(client, message, file_loc):
             audio=file_loc,
             thumb=thumb,
             caption=filename,
-            title=title,
+            title=title.text,
             performer=artist,
             duration=duration,
             progress=progress_func,
