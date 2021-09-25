@@ -6,6 +6,7 @@
 from pyrogram import filters
 from pyrogram import Client as trojanz
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyromod import listen
 
 from config import Config
 from script import Script
