@@ -21,8 +21,11 @@ async def upload_audio(client, message, file_loc):
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton(text="Progress", callback_data="progress_msg")]])
     )
+    
+    media = message.video or message.document
+    filename = media.file_name
 
-    title = None
+    title = await client.ask(message.chat.id,'Enter Title :', filters=filters.text)
     artist = None
     thumb = None
     duration = 0
@@ -42,7 +45,7 @@ async def upload_audio(client, message, file_loc):
             chat_id=message.chat.id,
             audio=file_loc,
             thumb=thumb,
-            caption="**@posternaudext001bot**",
+            caption=filename,
             title=title,
             performer=artist,
             duration=duration,
@@ -90,4 +93,4 @@ async def upload_subtitle(client, message, file_loc):
         return
 
     await msg.delete()
-    await clean_up(file_loc)        
+    await clean_up(file_loc)
