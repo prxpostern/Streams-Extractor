@@ -26,7 +26,7 @@ async def download_file(client, message):
         ]),
         reply_to_message_id=media.message_id
     )
-    filetype = media.document or media.video or media.audio
+    filetype = media.document or media.video
 
     c_time = time.time()
 
@@ -86,6 +86,3 @@ async def download_file(client, message):
         "**Select the Stream to be Extracted...**",
         reply_markup=InlineKeyboardMarkup(buttons)
         )
-
-
-
