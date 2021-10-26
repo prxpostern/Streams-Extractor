@@ -31,10 +31,15 @@
 ## Any bugs or errors or suggestions, report at [TroJanzSupport](https://telegram.dog/TroJanzSupport)
 
 
-## Installation
+## 🚀 Deployment
 
-### Deploy to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TroJanzHEX/Streams-Extractor)
+### 💜 Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/prxpostern/Video-Trim-AudioExtractor)
+
+### 💜 Railway
+
+[![Deploy To Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/prxpostern/Video-Trim-AudioExtractor&envs=API_ID,API_HASH,BOT_TOKEN)
 
 ### Deploy in your vps
 ```sh
